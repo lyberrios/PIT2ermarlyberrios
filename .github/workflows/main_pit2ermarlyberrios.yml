@@ -57,6 +57,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'PIT2ermarlyberrios'
-          slot-name: 'Production'
+          slot-name: 'staging'  # Cambia esto al nombre de tu slot de staging
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_20F8921799384FBBB8134F711CB74EC2 }}
