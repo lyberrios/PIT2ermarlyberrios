@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--icono-->
+    <link rel="icon" href="img/logo-png.png" type="image/x-icon">
+    <!--Cargar fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+    <!--Cargar estilos-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--Plugin validacion-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <!--Cargar JS-->
+    <title> Criar conta | Dulcinea Cupcakes</title>
+</head>
+
+<!--MENÚ RESPONSIVE-->
+<div class="menu-mobile">
+    <header class="menu-mobile__header">
+            <a href="index.html" class="menu-mobile__xbutton">Voltar
+        </a>
+</div>
+</header>
+<!--MENÚ termina-->
+
+<body>
+
+
+    <div class="login">
+        <!--img src="assets/img/fondo2.avif" alt="" class="login__bg"!-->
+
+        <form action="/register" method="POST" id="login__form">
+            <h1 class="login__title"> Criar conta </h1>
+            <p class="register__words">Registre-se para degustar sabores da loja Dulcinea Cupcakes.</p>
+            <div class="login__inputs">
+                <div class="login__box">
+                    <input type="name"  name="fullname" placeholder="Nome e sobrenome" required class="login__input"
+                        data-validation="alphanumeric" />
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div class="login__box">
+                    <input type="text" name="username" placeholder="Usuário" required class="login__input"
+                        data-validation="alphanumeric" data-validation-length="max8" />
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            
+                <div class="login__box">
+                    <input type="text" name="birthdate" placeholder="Data de Nascimiento" id="fecha" data-validation="date"
+                        data-validation-format="dd-mm-yyyy" class="login__input" />
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+            
+            
+                <div class="login__box">
+                    <input type="email" name="email" placeholder="Correo electrónico" required class="login__input"
+                        data-validation="email" />
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="login__box">
+                    <input type="password" name="password" placeholder="Senha" required class="login__input"
+                        autocomplete="current-password">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="login__check">
+                <div class="login__check-box">
+                    <input type="checkbox" class="login__check-input" id="user-check">
+                    <label for="user-check" class="login__check-label">Ao se registrar, você aceita nossos Termos,
+                        nossa Política de Privacidade e nossa Política de Cookies.</label>
+                </div>
+            </div>
+            <button type="submit" class="login__button">Continuar</button>
+            <div class="login__barra">
+                <div class="barra__der"></div>
+                <div class="barra__medio">Ou</div>
+                <div class="barra__der"></div>
+            </div>
+
+            <div class="login__register">
+                <p class="register__words">Você já tem uma conta? <a class="info__policy" href="login.html">Conecte-se</a></p>
+            </div>
+        
+        </form>
+
+
+    </div>
+
+    <script src="js/validacao.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuitarLA: Nuestro Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/logo-png.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__contenedor">
+            <div class="header__barra">
+                <a href="/">
+                    <img class="header__logo" src="img/logo-png.png" alt="imagen logo">
+                </a>
+
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="nos.html">Dulcinea</a>
+                    <a class="navegacion__enlace" href="loja.html">Cardápio</a>
+                    <a class="navegacion__enlace" href="contato.html">Contato</a>
+                </nav>
+            </div><!--.header-barra-->
+        </div>
+    </header>
+
+
+    <main class="contenedor">
+        <h2 class="heading">Contato</h2>
+        <section class="content__page content__contact">
+            <!--Este contenido cambia en cada página del sitio web-->
+
+            <div class="contact__container">
+
+                <section class="contact__info">
+
+                    <div class="contact__data">
+                        <i class="contact__icon fa-solid fa-location-dot"></i>
+                        <h2 class="contact__subtitle">São Paulo</h2>
+                    </div>
+
+                    <div class="contact__data">
+                        <i class="contact__icon fa-solid fa-phone"></i>
+                        <h2 class="contact__subtitle">(11) 77692303</h2>
+                    </div>
+
+                    <div class="contact__data">
+                        <i class="contact__icon fa-solid fa-envelope"></i>
+                        <h2 class="contact__subtitle">ermarly@gmail.com</h2>
+                    </div>
+
+                    <div class="contact__data">
+                        <i class="contact__icon fa-solid fa-circle-check"></i>
+                        <h2 class="contact__subtitle">Loja de Cupcakes</h2>
+                    </div>
+                </section>
+
+                <section class="contact__form-box">
+                    <div class="contact__map" id="load-iframe-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4855.061251511649!2d-46.69218345216398!3d-23.592307231194543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5705221795c3%3A0x47c713eeb77240e3!2sAmazon%20Brazil%20-%20GRU10!5e0!3m2!1ses-419!2sbr!4v1729045467991!5m2!1ses-419!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <span class="loader"></span>
+                    </div>
+
+                    <header class="contact__form-header">
+                        <h3 class="form-header__title">Como posso <span class="title__color"> ajudar?</span></h3>
+                    </header>
+                    <form class="contact__form">
+                        <div class="form__container">
+
+                            <section class="form__left">
+                                <div class="form__group">
+                                    <input type="text" class="form__input" name="name" placeholder="Nombre">
+                                    <label for="name" class="form__label">Nome:</label>
+                                </div>
+
+                                <div class="form__group">
+                                    <input type="email" class="form__input" name="email" placeholder="Email">
+                                    <label for="email" class="form__label">Email:</label>
+
+                                </div>
+
+                                <div class="form__group">
+                                    <input type="text" class="form__input" name="subject" placeholder="Subject">
+                                    <label for="subject" class="form__label">Assunto:</label>
+
+                                </div>
+
+                            </section>
+
+                            <section class="form__right">
+                                <div class="form__group form__group--textarea">
+                                    <textarea class="form__input form__input--textarea" name="mensaje" required
+                                        placeholder="Mensaje"></textarea>
+                                    <label for="message" class="form__label">Mensagem:</label>
+
+
+                                </div>
+                            </section>
+                        </div>
+                        <input type="submit" class="form__button" value="Enviar">
+
+                    </form>
+                </section>
+
+            </div>
+
+        </section>
+        
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__contenedor footer__contenido">
+            <nav class="footer__nav">
+                <a class="navegacion__enlace" href="index.html">Inicio</a>
+                <a class="navegacion__enlace" href="nos.html">Dulcinea</a>
+                <a class="navegacion__enlace" href="loja.html">Cardápio</a>
+                <a class="navegacion__enlace" href="blog.html">Contato</a>
+            </nav>
+            <p class="footer__copyright">&copy;Todos os direitos reservados 2024</p>
+        </div>
+    </footer>
+
+</body>
+</html>
