@@ -30,3 +30,20 @@ $(document).ready(function() {
         }
     });
 });
+function registrarUsuario(user) {
+    $.ajax({
+        url: "https://pit2ermarlyberrios-cyc3esekd9auf4fk.brazilsouth-01.azurewebsites.net/register", // Ajusta la URL si es necesario
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(user),
+        success: function(response) {
+            alert("Usuário cadastrado com sucesso");
+            localStorage.setItem("authenticatedUser", JSON.stringify(user)); // Guarda el usuario en localStorage
+            window.location.href = "login.html"; // Redirige al usuario a la página de login
+        },
+        error: function(error) {
+            console.log("Erro ao cadastrar:", error);
+            alert("Erro no servidor. Tente mais tarde.");
+        }
+    });
+ }

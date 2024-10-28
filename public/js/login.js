@@ -24,7 +24,7 @@ $(document).ready(function () {
 });
 
 function loginUser(emailOrUser, password) {
-    console.log("Enviando datos al servidor...", emailOrUser, password); // Verifica los datos antes de enviar
+    console.log("Enviando dados ao servidor...", emailOrUser, password); // Verifica los datos antes de enviar
 
     $.ajax({
         url: "https://pit2ermarlyberrios-cyc3esekd9auf4fk.brazilsouth-01.azurewebsites.net/login.html", // Cambia a tu URL de API en Azure

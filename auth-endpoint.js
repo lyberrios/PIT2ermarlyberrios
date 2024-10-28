@@ -1,10 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware para parsear el cuerpo de las solicitudes JSON
 app.use(bodyParser.json());
+
+// Configura CORS para permitir solicitudes desde el frontend en localhost
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Simulación de una base de datos de usuarios
 const users = [
@@ -20,9 +25,9 @@ app.post('/login', (req, res) => {
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
-        res.status(200).json({ message: 'Login com sucesso' });
+        res.status(200).json({ success: true, message: 'Login com sucesso' });
     } else {
-        res.status(401).json({ message: 'Credenciais inválidas.' });
+        res.status(401).json({ success: false, message: 'Credenciais inválidas.' });
     }
 });
 
