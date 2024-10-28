@@ -9,8 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Configura CORS para permitir solicitudes desde el frontend en localhost
-app.use(cors({ origin: 'http://localhost:3000' }));
-
+app.use(cors({ origin: '*' })); 
 // Simulación de una base de datos de usuarios
 const users = [
     { username: 'user1', password: 'password1' },
