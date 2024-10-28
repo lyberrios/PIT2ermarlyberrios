@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/cadastro.css">
- 
+
 
     <title>Login | Dulcinea Cupcakes</title>
 
@@ -25,14 +25,14 @@
 <div class="menu-mobile">
     <header class="menu-mobile__header">
         <a href="index.html" class="menu-mobile__xbutton">
-           Voltar
+            Voltar
         </a>
-    </div>
-    </header>
+</div>
+</header>
 <!--MENÚ termina-->
 
 <body>
-   
+
     <div class="login">
 
         <form action="" class="login__form">
@@ -40,11 +40,13 @@
 
             <div class="login__inputs">
                 <div class="login__box">
-                    <input type="email" id="emailOrUser" placeholder="Email ou usuário" required class="login__input"/>
+                    <input type="email" id="emailOrUser" placeholder="Email ou usuário" required class="login__input"
+                        autocomplete="username" />
                     <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div class="login__box">
-                    <input type="password" id="password" placeholder="Senha" required class="login__input" autocomplete="current-password"/>
+                    <input type="password" id="password" placeholder="Senha" required class="login__input"
+                        autocomplete="current-password" />
                     <i class="fa-solid fa-lock"></i>
                 </div>
             </div>
@@ -53,30 +55,34 @@
                 <div class="login__check-box">
                     <input type="checkbox" class="login__check-input" id="user-check">
                     <label for="user-check" class="login__check-label">Lembre-se-</label>
-            </div>
+                </div>
 
-            <a href="#" class="login__forgot">Esqueceu da sua senha?</a>
+                <a href="#" class="login__forgot">Esqueceu da sua senha?</a>
             </div>
             <button type="submit" class="login__button">Entrar</button>
             <div class="login__barra">
-            <div class="barra__der"></div>
-            <div class="barra__medio">Ou</div>
-            <div class="barra__der"></div>
-        </div>
+                <div class="barra__der"></div>
+                <div class="barra__medio">Ou</div>
+                <div class="barra__der"></div>
+            </div>
 
-        <div class="login__register">
-            <p class="register__words">Não tem uma conta ainda? <a class="register__link" href="cadastrar.html">Cadastre-se</a></p>
-        </div>
-       
+            <div class="login__register">
+                <p class="register__words">Não tem uma conta ainda? <a class="register__link"
+                        href="cadastrar.html">Cadastre-se</a></p>
+            </div>
+
         </form>
-        
+
 
     </div>
-        <!-- Agregar jQuery antes de los scripts -->
-
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jQuery Validation Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <!-- Scripts de validación y lógica de login -->
     <script src="js/login.js"></script>
     <script src="js/validacao.js"></script>
-    
+
 </body>
+
 </html>

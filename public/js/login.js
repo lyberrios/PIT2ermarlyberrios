@@ -1,7 +1,6 @@
 $(document).ready(function () {
     // Comprobar si el usuario está autenticado al cargar la página
     checkAuthentication();
-    
     $(".login__form").submit(function (event) {
         event.preventDefault();
 
@@ -16,9 +15,8 @@ $(document).ready(function () {
         // Llamada a la función de verificación con Azure
         loginUser(emailOrUser, password);
     });
-
-    // Manejar el logout
-    $("#logoutButton").click(function () {
+     // Manejar el logout
+     $("#logoutButton").click(function () {
         localStorage.removeItem("authenticatedUser");
         checkAuthentication();
         alert("Sessão encerrada com sucesso.");
@@ -26,31 +24,32 @@ $(document).ready(function () {
 });
 
 function loginUser(emailOrUser, password) {
-    console.log("Enviando datos al servidor...", emailOrUser, password);
+    console.log("Enviando datos al servidor...", emailOrUser, password); // Verifica los datos antes de enviar
 
     $.ajax({
-        url: "https://tu-azure-api-url/api/login", // Cambia a la URL de tu API en Azure
+        url: "https://pit2ermarlyberrios-cyc3esekd9auf4fk.brazilsouth-01.azurewebsites.net/login.html", // Cambia a tu URL de API en Azure
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ emailOrUser, password }),
         success: function(response) {
-            console.log("Respuesta del servidor:", response);
+            console.log("Resposta do servidor:", response); // Verifica la respuesta
 
             if (response.success) {
                 alert("Login com sucesso.");
-                localStorage.setItem("authenticatedUser", true);
+                localStorage.setItem("authenticatedUser", true);  // Guardar el estado de autenticación
+
+                // Redirigir al usuario a su página de inicio o perfil
                 window.location.href = "index.html";
             } else {
                 alert("Usuário ou senha incorretos.");
             }
         },
         error: function(error) {
-            console.error("Falha na autenticação:", error);
+            console.log("Falha na autenticação:", error); // Verifica si hay errores de red
             alert("Erro no servidor. Tente mais tarde.");
         }
     });
 }
-
 function checkAuthentication() {
     if (localStorage.getItem("authenticatedUser")) {
         $("#loginContainer").hide();
