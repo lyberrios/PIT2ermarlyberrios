@@ -26,7 +26,6 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
@@ -42,7 +41,9 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -51,17 +52,19 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-        
+      
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_20F8921799384FBBB8134F711CB74EC2 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D560A9605F76445F82607CF11842F5D3 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_32C84F4AFC9F45D3A976B8155D33B1F8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_208118C5530B43ABAB0F0FBCC3E36B07 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'PIT2ermarlyberrios'
-          slot-name: 'staging'  # Cambia esto al nombre de tu slot de staging
+          slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_20F8921799384FBBB8134F711CB74EC2 }}
+          
