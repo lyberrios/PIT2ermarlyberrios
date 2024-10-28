@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#login__form").validate({
+    $(".login__form").validate({
         rules: {
             fullname: {
                 required: true,
