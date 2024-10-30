@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar Cliente</title>
+    <link rel="stylesheet" href="css/clientes.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Lateral -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><button onclick="window.location.href='clientes.html'">Dados do Cliente</button></li>
+            <li><button onclick="window.location.href='pesquisar.html'">Pesquisar</button></li>
+            <li><button onclick="window.location.href='alterar.html'">Configurações</button></li>
+            <li><button onclick="window.location.href='index.html'">Home</button></li>
+        </ul>
+    </aside>
+
+    <!-- Formulario de Pesquisa -->
+    <main class="main-content">
+        <h2>Pesquisar Cliente</h2>
+        <form id="pesquisaForm" onsubmit="pesquisarCliente(event)">
+            <label for="pesquisaId">Digite o ID do cliente</label>
+            <input type="text" id="pesquisaId" name="pesquisaId" required>
+
+            <button type="submit">Pesquisar</button>
+        </form>
+        <div id="resultadosPesquisa"></div>
+    </main>
+
+<script src="js/clientes.js"></script>
+</body>
+</html>

@@ -1,49 +1,47 @@
-$(document).ready(function() {
-    $(".login__form").validate({
-        rules: {
-            fullname: {
-                required: true,
-                minlength: 3
-            },
-            birthdate: {
-                required: true,
-                date: true
-            },
-            password: {
-                required: true,
-                minlength: 6
-            }
-        },
-        messages: {
-            fullname: {
-                required: "Por favor, digite seu nome e sobrenome.",
-                minlength: "O nome deve ter pelo menos 3 caracteres."
-            },
-            birthdate: {
-                required: "Por favor, insira sua data de nascimento",
-                date: "Por favor, insira uma data válida."
-            },
-            password: {
-                required: "Por favor, digite uma senha",
-                minlength: "A senha deve ter pelo menos 6 caracteres."
-            }
+$(document).ready(function () {
+    $("#submitButton").click(function(event) {
+        event.preventDefault(); // Prevenir envío tradicional del formulario
+
+        // Recopilar datos del formulario
+        const userData = {
+            fullname: $("input[name='fullname']").val().trim(),
+            username: $("input[name='username']").val().trim(),
+            birthdate: $("input[name='birthdate']").val().trim(),
+            email: $("input[name='email']").val().trim(),
+            password: $("input[name='password']").val().trim()
+        };
+
+        // Verificar que los datos están completos
+        if (!userData.fullname || !userData.username || !userData.birthdate || !userData.email || !userData.password) {
+            alert("Todos los campos son obligatorios");
+            return;
         }
+
+        // Enviar datos al servidor mediante AJAX
+        $.ajax({
+            url: "http://localhost/pit2projeto/public/register.php",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(userData),
+            success: function(response) {
+                console.log("Respuesta del servidor:", response);
+                try {
+                    const serverResponse = JSON.parse(response);
+                    if (serverResponse.message) {
+                        alert("Usuário cadastrado com sucesso!");
+                        window.location.href = "login.html";
+                    } else if (serverResponse.error) {
+                        alert("Erro: " + serverResponse.error);
+                    }
+                } catch (e) {
+                    console.error("Respuesta inesperada:", response);
+                    alert("Erro inesperado do servidor. Tente mais tarde.");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Erro ao cadastrar:", error);
+                alert("Erro no servidor. Tente mais tarde.");
+            }
+        });
     });
 });
-function registrarUsuario(user) {
-    $.ajax({
-        url: "https://pit2ermarlyberrios-cyc3esekd9auf4fk.brazilsouth-01.azurewebsites.net/register", // Ajusta la URL si es necesario
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(user),
-        success: function(response) {
-            alert("Usuário cadastrado com sucesso");
-            localStorage.setItem("authenticatedUser", JSON.stringify(user)); // Guarda el usuario en localStorage
-            window.location.href = "login.html"; // Redirige al usuario a la página de login
-        },
-        error: function(error) {
-            console.log("Erro ao cadastrar:", error);
-            alert("Erro no servidor. Tente mais tarde.");
-        }
-    });
- }

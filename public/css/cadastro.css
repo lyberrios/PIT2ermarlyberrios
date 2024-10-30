@@ -303,3 +303,26 @@ img {
     }
 
 }
+
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde oscuro */
+    border: 1px solid #c3e6cb; /* Borde verde */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 80%; /* Ajusta si es necesario */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.success-message a {
+    color: #155724;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 5px; /* Espacio entre el mensaje y el enlace */
+}
