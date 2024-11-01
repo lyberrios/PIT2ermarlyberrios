@@ -1,3 +1,6 @@
+<?php
+session_start(); // Iniciar la sesión para verificar si el usuario ha iniciado sesión
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +26,17 @@
                 </a>
 
                 <nav class="navegacion">
-                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="index.php">Inicio</a>
                     <a class="navegacion__enlace" href="nos.html">Dulcinea</a>
-                    <a class="navegacion__enlace" href="loja.html">Cardápio</a>
+                    <a class="navegacion__enlace" href="loja.php">Cardápio</a>
                     <a class="navegacion__enlace" href="contato.html">Contato</a>
-                    <a class="navegacion__enlace" href="cadastrar.html">Login</a>
+                    
+                    <!-- Verificar si la sesión está iniciada para mostrar el botón correcto -->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <a class="navegacion__enlace" href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a class="navegacion__enlace" href="login.php">Login</a>
+                    <?php endif; ?>
                 </nav>
                 <div class="submenu">
                 <img src="img/cart.png" id="img-carrito">

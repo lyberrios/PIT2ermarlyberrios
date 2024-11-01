@@ -30,7 +30,7 @@ session_start(); // Iniciar la sesión para verificar si el usuario ha iniciado 
                 <nav class="navegacion">
                     <a class="navegacion__enlace" href="index.php">Inicio</a>
                     <a class="navegacion__enlace" href="nos.html">Dulcinea</a>
-                    <a class="navegacion__enlace" href="loja.html">Cardápio</a>
+                    <a class="navegacion__enlace" href="loja.php">Cardápio</a>
                     <a class="navegacion__enlace" href="contato.html">Contato</a>
                     
                     <!-- Verificar si la sesión está iniciada para mostrar el botón correcto -->
@@ -68,7 +68,7 @@ session_start(); // Iniciar la sesión para verificar si el usuario ha iniciado 
                 <h1 class="modelo__nombre">Os Melhores Cupcakes do Brasil</h1>
                 <p class="modelo__descripcion">Especializada em delícias que combinam sabores autênticos brasileiros com a delicadeza dos cupcakes, essa marca se destaca pela criatividade e qualidade.</p>
                 <p class="modelo__precio">Desde R$5</p>
-                <a class="modelo__enlace" href="produto.html">Ver Produtos</a>
+                <a class="modelo__enlace" href="loja.php">Ver Produtos</a>
             </div>
         </div>
 

@@ -57,9 +57,10 @@ body {
     max-width: 400px;
     margin: auto;
     background-color: white;
-    padding: 20px;
+    padding: 65px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 5rem;
 }
 
 .formulario h2 {
@@ -96,4 +97,10 @@ body {
     margin-top: 15px;
     color: #FFA500;
     text-decoration: none;
+}
+
+.mensagem{
+    background-color: rgb(215, 243, 172);
+    padding: 2rem;
+    font-size: 1.5rem;
 }
