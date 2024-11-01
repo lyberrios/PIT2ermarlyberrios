@@ -4,12 +4,18 @@
 Este projeto tem como objetivo desenvolver um sistema de e-commerce de uma loja de cupcakes para a gestão de compra do produto, cadastro e login de usuário. A plataforma permite que os clientesse registrem, adicionem seus pedidos ao carrinho e procedam ao pagamento por meio da plataforma Stripe.
 
 ![adicionar ao carrinho](image-6.png)
+
 # Utils
-- Wireframe: ![Wireframe](image-5.png)
-- História de usuários: ![Historia de usuários](https://drive.google.com/file/d/1e7wV2M0iKIHjdrYKQlTKpJsbvNoD4wID/view?usp=sharing)
-- Diagrama de banco de dados: ![Diagrama de banco de dados](https://drive.google.com/file/d/1u7zsdPkfVjo0UZAN-gHR6or7wgumYa8R/view?usp=sharing)
-- Diagrama de Sequencia: ![Diagrama de Sequencia](https://drive.google.com/file/d/18SjYoKgDcUDAtbXgTJ-LzTEx7E24tY6-/view?usp=sharing) 
-- Diagrama de caso de uso: ![Diagrama de caso de uso](https://drive.google.com/file/d/1rh2L66sU7NMoeqfXSjR66Uf9onD1XDQ9/view?usp=sharing) 
+- Wireframe: 
+![Wireframe](image-5.png)
+- História de usuários: 
+![Historia de usuários](![Histórias de usuários](image-9.png))
+- Diagrama de banco de dados: 
+![Diagrama de banco de dados](![Diagrama de Classes](image-10.png))
+- Diagrama de Sequencia: 
+![Diagrama de Sequencia](![Diagrama de sequencia](image-11.png)) 
+- Diagrama de caso de uso: 
+![Diagrama de caso de uso](![Casos de uso](image-12.png)) 
 
 ## Pré-requisitos
 - Php
@@ -43,7 +49,7 @@ Se você quiser testar o site antes de colocar em um hosting para executar servi
 
 ```php
 $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
-
+```
 ![Hash de senha](image-3.png)
 
 3. # Processo de check-out
