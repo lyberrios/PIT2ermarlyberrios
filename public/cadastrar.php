@@ -12,45 +12,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = "root";
     $password = "";
     $dbname = "dulcinea_cupcake";
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    try {
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Verificar conexión
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
-    // Obtener datos del formulario
-    $fullname = $conn->real_escape_string($_POST['fullname'] ?? '');
-    $username = $conn->real_escape_string($_POST['username'] ?? '');
-    $birthdate = $conn->real_escape_string($_POST['birthdate'] ?? '');
-    $email = $conn->real_escape_string($_POST['email'] ?? '');
-    $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
-
-    // Verificar que los campos no están vacíos
-    if ($fullname && $username && $birthdate && $email && $password) {
-        // Insertar en la base de datos
-        $sql = "INSERT INTO usuarios (fullname, username, birthdate, email, password) VALUES ('$fullname','$username', '$birthdate', '$email', '$password')";
-
-        if ($conn->query($sql) === TRUE) {
-            // Mensaje de éxito con enlace a iniciar sesión
-            $message = '<div class="success-message">Usuário cadastrado com sucesso! 
-                        <a href="login.php">Iniciar sesión</a></div>';
-        } else {
-            // Mensaje de error en caso de fallo en la inserción
-            $message = '<div class="error-message">Erro ao cadastrar usuário: ' . $conn->error . '</div>';
+        // Verificar conexión
+        if ($conn->connect_error) {
+            throw new Exception("Falha na conexão: " . $conn->connect_error);
         }
-    } else {
-        // Mensaje en caso de que falten campos
-        $message = '<div class="error-message">Todos os campos são obrigatórios.</div>';
-    }
 
-    $conn->close();
+        // Obtener datos del formulario
+        $fullname = $conn->real_escape_string($_POST['fullname'] ?? '');
+        $username = $conn->real_escape_string($_POST['username'] ?? '');
+        $birthdate = $conn->real_escape_string($_POST['birthdate'] ?? '');
+        $email = $conn->real_escape_string($_POST['email'] ?? '');
+        $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
 
-    // Redirigir a success.php con el mensaje codificado
-    header("Location: success.php?message=" . urlencode($message));
-    exit();  // Detener la ejecución después de la redirección
+        // Verificar que los campos no están vacíos
+        if ($fullname && $username && $birthdate && $email && $password) {
+            // Insertar en la base de datos
+            $sql = "INSERT INTO clientes (fullname, username, birthdate, email, password) VALUES ('$fullname', '$username', '$birthdate', '$email', '$password')";
 
+            if ($conn->query($sql) === TRUE) {
+                // Mensaje de éxito con enlace a iniciar sesión
+                $message = '<div class="success-message">Usuário cadastrado com sucesso! 
+                            <a href="login.php">Iniciar sesión</a></div>';
+            } else {
+                // Verificar si el error es por duplicado de usuario
+                if ($conn->errno == 1062) { // Código de error 1062 es para entradas duplicadas
+                    $message = '<div class="error-message">Usuário já cadastrado.</div>';
+                } else {
+                    throw new Exception("Erro ao cadastrar usuário: " . $conn->error);
+                }
+            }
+        } else {
+            // Mensaje en caso de que falten campos
+            $message = '<div class="error-message">Todos os campos são obrigatórios.</div>';
+        }
 
+        $conn->close();
+
+        // Redirigir a success.php con el mensaje codificado
+        header("Location: success.php?message=" . urlencode($message));
+        exit();  // Detener la ejecución después de la redirección
+
+        } catch (Exception $e) {
+        // Manejar cualquier excepción lanzada
+        $message = '<div class="error-message">' . $e->getMessage() . '</div>';
+        header("Location: success.php?message=" . urlencode($message));
+        exit();
+        }
     }
 ?>
 

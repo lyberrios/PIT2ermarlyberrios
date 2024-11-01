@@ -1,3 +1,7 @@
+<?php
+session_start(); // Iniciar la sesión para verificar si el usuario ha iniciado sesión
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,56 +11,57 @@
     <title>Dulcinea | Loja de Cupcakes</title>
     <link rel="icon" href="img/logo-png.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/carrito.css">
-
 </head>
 <body>
 
     <header class="header">
         <div class="header__contenedor">
             <div class="header__barra">
-                <a href="/">
+                <a href="index.php">
                     <img class="header__logo" src="img/logo-png.png" alt="imagen logo">
                 </a>
 
                 <nav class="navegacion">
-                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="index.php">Inicio</a>
                     <a class="navegacion__enlace" href="nos.html">Dulcinea</a>
                     <a class="navegacion__enlace" href="loja.html">Cardápio</a>
                     <a class="navegacion__enlace" href="contato.html">Contato</a>
-                    <a class="navegacion__enlace" href="login.php">Login</a>
-                    <button id="logoutButton" class="navegacion__enlace" style="display:none;">Logout</button>
-                    <button id="loginButton" class="navegacion__enlace" style="display:none;">Login</button>
+                    
+                    <!-- Verificar si la sesión está iniciada para mostrar el botón correcto -->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <a class="navegacion__enlace" href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a class="navegacion__enlace" href="login.php">Login</a>
+                    <?php endif; ?>
                 </nav>
+                
                 <div class="submenu">
-                <img src="img/cart.png" id="img-carrito">
-
-                <div id="carrito">
-
-                    <table id="lista-carrito" class="u-full-width">
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                    <a href="#" id="vaciar-carrito" class="button u-full-width">Excluir do carrinho</a>
-                    <button id="continuar-carrito" class="button continuar u-full-width">Confirmar compra</button>
-            </div>
-        </div>
+                    <img src="img/cart.png" id="img-carrito">
+                    <div id="carrito">
+                        <table id="lista-carrito" class="u-full-width">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Productos del carrito se agregan aquí -->
+                            </tbody>
+                        </table>
+                        <a href="#" id="vaciar-carrito" class="button u-full-width">Excluir do carrinho</a>
+                        <button id="continuar-carrito" class="button continuar u-full-width">Confirmar compra</button>
+                    </div>
+                </div>
             </div><!--.header-barra-->
 
             <div class="modelo">

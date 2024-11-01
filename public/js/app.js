@@ -37,6 +37,8 @@ function cargarEventListener() {
         // Agregar el evento al botón de continuar
         const continuarCarritoBtn = document.getElementById('continuar-carrito');
         continuarCarritoBtn.addEventListener('click', () => {
+            console.log('Botón de Confirmar Compra presionado');
+
             console.log("Datos del carrito antes de la redirección:", articulosCarrito);
             window.location.href = 'confirmacao.html';
         });

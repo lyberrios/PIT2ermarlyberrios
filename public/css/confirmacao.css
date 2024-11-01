@@ -6,19 +6,21 @@
     --gr-hover: #dcdcdc;
     --gr-muy-os: #333;
     --fuentePrincipal: 'Raleway', sans-serif;
-    
+
 }
 
 body {
     margin: 0;
     font-size: 14px;
-  line-height: 1.4;
+    line-height: 1.4;
 
 }
-html{
+
+html {
     font-family: var(--fuentePrincipal);
 
 }
+
 /* Estilos generales para el header */
 .header__container {
     background-color: var(--gris);
@@ -55,7 +57,8 @@ html{
     order: 2;
     /* Esto colocará el otro logo después del content__logo */
 }
-.content__safe-text{
+
+.content__safe-text {
     display: block;
     text-align: center;
 }
@@ -81,36 +84,48 @@ html{
 }*/
 
 .cart-total--cards {
-    width: 40%; /* Ajusta el ancho según sea necesario */
-    text-align: left; /* Alinea el contenido a la izquierda */
-    
+    width: 40%;
+    /* Ajusta el ancho según sea necesario */
+    text-align: left;
+    /* Alinea el contenido a la izquierda */
+
 }
 
 .cart-cards img {
-    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 100px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
     margin: 1rem;
 }
 
 .cart-total-container {
     display: flex;
-    justify-content: space-between; /* Distribuye el espacio equitativamente entre los elementos hijos */
-    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: space-between;
+    /* Distribuye el espacio equitativamente entre los elementos hijos */
+    align-items: center;
+    /* Alinea los elementos verticalmente en el centro */
     padding: 20px;
-    background-color: var(--gris); /* Color de fondo del contenedor */
+    background-color: var(--gris);
+    /* Color de fondo del contenedor */
 }
+
 #cart__total--container {
-    width: 40%; /* Ajusta el ancho según sea necesario */
+    width: 40%;
+    /* Ajusta el ancho según sea necesario */
     padding: 20px;
-    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
-    text-align: right; /* Alinea el contenido a la derecha */
-    
+    box-sizing: border-box;
+    /* Asegura que el padding se incluya en el ancho */
+    text-align: right;
+    /* Alinea el contenido a la derecha */
+
 }
-#cart__total--container > p{
+
+#cart__total--container>p {
     font-size: 1.5rem;
 }
 
-#cart-empty-message{
+#cart-empty-message {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
@@ -120,7 +135,8 @@ html{
 
 #cart__confirmation h2 {
     padding: 2rem;
-    border-bottom: 5px solid var(--gr-hover);;
+    border-bottom: 5px solid var(--gr-hover);
+    ;
 }
 
 ul {
@@ -133,20 +149,25 @@ ul {
 }
 
 .cart__more {
-    display: inline-block; /* Cambiamos a inline-block para que el ancho se ajuste al contenido */
+    display: inline-block;
+    /* Cambiamos a inline-block para que el ancho se ajuste al contenido */
     margin: 2rem;
-    padding: 10px 20px; /* Añadimos un relleno al botón */
-    color:var(--gr-muy-os);
-    background-color: var(--nar); 
+    padding: 10px 20px;
+    /* Añadimos un relleno al botón */
+    color: var(--gr-muy-os);
+    background-color: var(--nar);
     border: none;
-    border-radius: 5px; 
-    text-align: center; 
-    text-decoration: none; /* Quitamos subrayado por defecto */
-    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    /* Quitamos subrayado por defecto */
+    transition: background-color 0.3s;
+    /* Transición suave para el cambio de color de fondo */
 }
 
 .cart__more:hover {
-    background-color: var(--gr-hover); /* Cambiamos el color de fondo al hacer hover */
+    background-color: var(--gr-hover);
+    /* Cambiamos el color de fondo al hacer hover */
 }
 
 .pago {
@@ -168,9 +189,12 @@ ul {
 
 
 .cart-product-image {
-    width: 100px; /* Ajusta el tamaño según sea necesario */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    width: 100px;
+    /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    margin-right: 10px;
+    /* Espacio entre la imagen y el texto */
 }
 
 /* Estilo para el contenedor del ítem del carrito */
@@ -178,37 +202,46 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px; 
-    border-bottom: 1px solid #ccc; /* Línea separadora entre los ítems */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    /* Línea separadora entre los ítems */
     padding-bottom: 10px;
 }
 
 /* Estilo para el texto del ítem del carrito */
 .cart-item-text {
     text-align: left;
-    font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+    font-size: 16px;
+    /* Ajusta el tamaño del texto según sea necesario */
 }
 
 /* Estilo para el contenedor del carrito */
 .cart-dropdown {
     height: auto;
-    max-width: 1100px; /* Ajusta el ancho máximo del contenedor del carrito */
-    margin: 2rem; /* Centra el contenedor del carrito */
+    max-width: 1100px;
+    /* Ajusta el ancho máximo del contenedor del carrito */
+    margin: 2rem;
+    /* Centra el contenedor del carrito */
     padding: 20px;
-    background: #fff; /* Fondo blanco */
-    border: 1px solid #ccc; /* Borde del contenedor */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+    background: #fff;
+    /* Fondo blanco */
+    border: 1px solid #ccc;
+    /* Borde del contenedor */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra para el contenedor */
 }
-.pagos{
+
+.pagos {
     width: 50%;
 }
 
-#cart-empty-message{
+#cart-empty-message {
     display: none;
 }
 
-.quantity{
+.quantity {
     width: 1rem;
     text-align: center;
 }
@@ -218,8 +251,9 @@ ul {
     border: none;
     cursor: pointer;
     color: red;
-    
+
 }
+
 .cart-item {
     display: flex;
     align-items: center;
@@ -263,7 +297,7 @@ ul {
 }
 
 /*footer*/
-.section__footer{
+.section__footer {
     display: flex;
     background-color: var(--gr-muy-os);
     color: var(--bl);
@@ -273,51 +307,56 @@ ul {
     text-align: justify;
 }
 
-.footer__contenedor{
+.footer__contenedor {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    
+
 }
-.footer__contenedor:first-child{
+
+.footer__contenedor:first-child {
     padding-left: 5rem;
 }
 
-.section__footer h3{
+.section__footer h3 {
     font-size: 1.5rem;
 }
 
-.section__footer p{
+.section__footer p {
     font-size: 15px;
     line-height: 1.5rem;
 }
-.footer__contenedor a{
-    
+
+.footer__contenedor a {
+
     text-decoration: none;
     color: var(--bl);
 }
 
 .footer__contenedor a:hover,
-.cart-checkout:hover{
+.cart-checkout:hover {
     color: var(--nar);
 }
 
-footer a{
+footer a {
     margin-bottom: 1rem;
 }
 
-.footer__icon{
+.footer__icon {
     text-align: center;
     display: flex;
     justify-content: space-around;
 }
-.footer__follow i{
+
+.footer__follow i {
     padding-right: 4px;
     cursor: pointer;
 }
-.pagos{
-    margin: 10px 0 15px 0;   
+
+.pagos {
+    margin: 10px 0 15px 0;
 }
+
 .footer_copyright {
     flex: 1 1 100%;
     text-align: center;
@@ -327,19 +366,39 @@ footer a{
 
 /*footer*/
 @media (max-width: 769px) {
-   /*footer*/
-   .section__footer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    /*footer*/
+    .section__footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__contenedor {
+        text-align: center;
+        /* Centro el contenido dentro de cada contenedor */
+        align-items: center;
+    }
+
+    .footer__contenedor:first-child {
+        padding-left: 0;
+    }
 }
 
-.footer__contenedor {
-    text-align: center;
-    /* Centro el contenido dentro de cada contenedor */
+.price-remove-container {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.footer__contenedor:first-child {
-    padding-left: 0;
-}}
+.remove-item {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    position: relative;
+    left: 32rem;
+    top: -8rem;
+}
