@@ -71,6 +71,6 @@ composer require stripe/stripe-php```
 \Stripe\Stripe::setApiKey('chave_ publica_aqui') --> arquivo de javascript
 
 \Stripe\Stripe::setApiKey('chave_ secreta_aqui') --> arquivo para pagamento feito em php
-
+```
 ![Pagamento com Stripe](image-7.png)
 
