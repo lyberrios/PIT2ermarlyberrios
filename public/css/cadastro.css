@@ -326,3 +326,13 @@ img {
     text-decoration: underline;
     margin-left: 5px; /* Espacio entre el mensaje y el enlace */
 }
+
+.error-message {
+    color: red;
+    background-color: #ffe6e6; /* Rojo claro */
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+}

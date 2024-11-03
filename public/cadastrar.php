@@ -1,4 +1,6 @@
 <?php
+include 'include/config.php';
+
 // Mostrar errores (solo para depuración, desactivar en producción)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -9,9 +11,9 @@ $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conectar a la base de datos
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "dulcinea_cupcake";
+    $username = "u968109252_cupcakes";
+    $password = "Notengoqueso1";
+    $dbname = "u968109252_cupcakedulcin";
     try {
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,9 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener datos del formulario
         $fullname = $conn->real_escape_string($_POST['fullname'] ?? '');
         $username = $conn->real_escape_string($_POST['username'] ?? '');
-        $birthdate = $conn->real_escape_string($_POST['birthdate'] ?? '');
+        $birthdate = DateTime::createFromFormat('d/m/Y', $_POST['birthdate'])->format('Y-m-d');
         $email = $conn->real_escape_string($_POST['email'] ?? '');
-        $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
 
         // Verificar que los campos no están vacíos
         if ($fullname && $username && $birthdate && $email && $password) {
@@ -35,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($conn->query($sql) === TRUE) {
                 // Mensaje de éxito con enlace a iniciar sesión
                 $message = '<div class="success-message">Usuário cadastrado com sucesso! 
-                            <a href="login.php">Iniciar sesión</a></div>';
+                            <a href="login.php">Fazer login</a></div>';
             } else {
                 // Verificar si el error es por duplicado de usuario
                 if ($conn->errno == 1062) { // Código de error 1062 es para entradas duplicadas
@@ -121,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="login__register">
-                <p class="register__words">Você já tem uma conta? <a class="info__policy" href="login.html">Conecte-se</a></p>
+                <p class="register__words">Você já tem uma conta? <a class="info__policy" href="login.php">Conecte-se</a></p>
             </div>
         </form>
     </div>

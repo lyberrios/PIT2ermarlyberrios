@@ -1,4 +1,6 @@
 <?php
+include 'include/config.php';
+
 // Mostrar errores para depuración
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -6,9 +8,9 @@ error_reporting(E_ALL);
 
 // Configuración de la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dulcinea_cupcake";
+$username = "u968109252_cupcakes";
+$password = "Notengoqueso1";
+$dbname = "u968109252_cupcakedulcin";
 
 $message = "";
 
@@ -32,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result && $result->num_rows > 0) {
         // El usuario existe, verificar la contraseña
         $user = $result->fetch_assoc();
+
         if (password_verify($password, $user['password'])) {
             // Contraseña correcta, redirigir al dashboard o página de bienvenida
             session_start();
@@ -84,6 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" placeholder="Senha" required class="login__input" autocomplete="current-password" />
                     <i class="fa-solid fa-lock"></i>
                 </div>
+                
+
             </div>
 
             <div class="login__check">

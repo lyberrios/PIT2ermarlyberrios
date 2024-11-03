@@ -52,25 +52,87 @@ $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
 ```
 ![Hash de senha](image-3.png)
 
-3. # Processo de check-out
+# Sistema de Autenticação
+Este sistema de autenticação permite que os usuários se cadastrem na plataforma, façam login e acessem um Dashboard personalizado para que o usuario preencha os seus dados pessoais para fazer seu pedido após a autenticação. Os principais processos envolvidos são explicados a seguir: Cadastro (Cadastro), Login e Dashboard.
+3. ## Processo de Cadastro
+### Fluxo Cadastral - Formulário de Cadastro:
+O usuário acessa a página de cadastro onde é solicitado o preenchimento de diversos campos:
+- Nome completo
+- Nome de usuário
+- Data de nascimento
+- E-mail
+- Senha
+![Criar conta](image-14.png)
+### Validação de dados:
+No lado do cliente, os dados são validados usando JavaScript para garantir que todos os campos obrigatórios estejam preenchidos e que o email esteja em um formato válido.
+No lado do servidor, são realizadas verificações adicionais para garantir que o nome de usuário ou e-mail ainda não esteja em uso.
+
+![Validação](image-15.png)
+### Confirmação de inscrição:
+Caso o cadastro seja bem-sucedido, o usuário é redirecionado para uma página de sucesso, onde é informado que pode efetuar login.
+
+4. ## Processo de login
+O processo de login permite que os usuários acessem a plataforma com suas credenciais cadastradas.
+### Formulário de login:
+O usuário insere seu nome de usuário ou e-mail e senha no formulário de login.
+![login](image-17.png)
+### Verificação de credenciais:
+O servidor procura o usuário no banco de dados usando o nome de usuário ou e-mail fornecido.
+
+A senha inserida é comparada com aquela armazenada no banco de dados usando 
+```
+password_verify.
+```
+### Autenticação:
+``` 
+// Verificar a senha
+if (password_verify($password_ingresado, $password_almacenado)) {
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    header("Location: dashboard.php");
+} else {
+    echo "Senha incorreta.";
+}
+```
+
+Se as credenciais estiverem corretas, uma sessão é iniciada e o usuário é redirecionado para o Dashboard.
+![Depois de fazer o login](image-13.png)
+
+Se as credenciais estiverem incorretas, será exibida uma mensagem de erro informando que os dados estão incorretos.
+![Senha inválida](image-19.png)
+5. ## Dashboard
+O Dashboard é a página principal para a qual o usuário é redirecionado após fazer login. Neste painel o usuário pode acessar seus dados pessoais e funções exclusivas de sua conta.
+
+### Recursos do painel
+- Informações pessoais
+- Visualizando detalhes do usuário, como nome, e-mail e data de nascimento, dados de endereço, cpf
+- O usuário pode gerenciar suas informações pessoais
+- Ver pedidos
+- Voltar ao site principal
+
+6. ## Processo de check-out
 Este projeto implementa um processo de checkout usando Stripe para gerenciar pagamentos com segurança. O usuário pode selecionar produtos, inserir seus dados de pagamento e finalizar a transação.
 
-4. Integração de pagamentos com Stripe
+7. ## Integração de pagamentos com Stripe
 - Para processar pagamentos, é recomendado usar a API Stripe. Siga estas etapas para integrá-lo ao seu projeto:
 ![Checkout](image-8.png)
 
-### 1. Crear una cuenta en Stripe
+### a. Crear una cuenta en Stripe
 Visite [Stripe](https://stripe.com) e crie uma conta, caso ainda não tenha uma.
 
-### 2. Instale a biblioteca Stripe
+### b. Instale a biblioteca Stripe
 Se estiver usando PHP, você pode instalar a biblioteca Stripe usando o Composer:
 ```bash
-composer require stripe/stripe-php```
+composer require stripe/stripe-php
+```
+### c. Faça a configuração de Stripe
+```\Stripe\Stripe::setApiKey('publishable_ key_aqui') --> arquivo de javascript
 
-### 3. Faça a configuração de Stripe
-\Stripe\Stripe::setApiKey('chave_ publica_aqui') --> arquivo de javascript
-
-\Stripe\Stripe::setApiKey('chave_ secreta_aqui') --> arquivo para pagamento feito em php
+\Stripe\Stripe::setApiKey('secret_ key_aqui') --> arquivo para pagamento feito em php
 ```
 ![Pagamento com Stripe](image-7.png)
 
+8. ## Cancelação do pedido
+A funcionalidade de "Cancelamento do Pedido" foi implementada para fornecer aos usuários uma experiência amigável e intuitiva ao lidar com pagamentos que não foram bem-sucedidos ou que foram cancelados. A página de cancelamento (cancel.php) é exibida ao usuário quando ocorre um problema durante o processo de checkout, seja por falha no pagamento ou por escolha do próprio usuário em cancelar a transação.
+
+![Cancelação](image-16.png)
