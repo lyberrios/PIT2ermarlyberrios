@@ -1,9 +1,6 @@
 # Projeto Fullstack: Projeto integrador transdiciplinar 2
 ![Full Stack Loja de Cupcakes](image-4.png)
 
-Link do projeto: 
-https://cupcakedulcinealoja.amarelosol.com/
-
 Este projeto tem como objetivo desenvolver um sistema de e-commerce de uma loja de cupcakes para a gestão de compra do produto, cadastro e login de usuário. A plataforma permite que os clientesse registrem, adicionem seus pedidos ao carrinho e procedam ao pagamento por meio da plataforma Stripe.
 
 ![adicionar ao carrinho](image-6.png)
