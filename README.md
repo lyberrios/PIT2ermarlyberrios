@@ -1,6 +1,9 @@
 # Projeto Fullstack: Projeto integrador transdiciplinar 2
 ![Full Stack Loja de Cupcakes](image-4.png)
 
+Link do projeto: 
+https://cupcakedulcinealoja.amarelosol.com/
+
 Este projeto tem como objetivo desenvolver um sistema de e-commerce de uma loja de cupcakes para a gestão de compra do produto, cadastro e login de usuário. A plataforma permite que os clientesse registrem, adicionem seus pedidos ao carrinho e procedam ao pagamento por meio da plataforma Stripe.
 
 ![adicionar ao carrinho](image-6.png)
@@ -54,7 +57,7 @@ $password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
 
 # Sistema de Autenticação
 Este sistema de autenticação permite que os usuários se cadastrem na plataforma, façam login e acessem um Dashboard personalizado para que o usuario preencha os seus dados pessoais para fazer seu pedido após a autenticação. Os principais processos envolvidos são explicados a seguir: Cadastro (Cadastro), Login e Dashboard.
-3. ## Processo de Cadastro
+3. Processo de Cadastro
 ### Fluxo Cadastral - Formulário de Cadastro:
 O usuário acessa a página de cadastro onde é solicitado o preenchimento de diversos campos:
 - Nome completo
@@ -63,6 +66,7 @@ O usuário acessa a página de cadastro onde é solicitado o preenchimento de di
 - E-mail
 - Senha
 ![Criar conta](image-14.png)
+
 ### Validação de dados:
 No lado do cliente, os dados são validados usando JavaScript para garantir que todos os campos obrigatórios estejam preenchidos e que o email esteja em um formato válido.
 No lado do servidor, são realizadas verificações adicionais para garantir que o nome de usuário ou e-mail ainda não esteja em uso.
@@ -71,7 +75,7 @@ No lado do servidor, são realizadas verificações adicionais para garantir que
 ### Confirmação de inscrição:
 Caso o cadastro seja bem-sucedido, o usuário é redirecionado para uma página de sucesso, onde é informado que pode efetuar login.
 
-4. ## Processo de login
+4. Processo de login
 O processo de login permite que os usuários acessem a plataforma com suas credenciais cadastradas.
 ### Formulário de login:
 O usuário insere seu nome de usuário ou e-mail e senha no formulário de login.
@@ -100,7 +104,7 @@ Se as credenciais estiverem corretas, uma sessão é iniciada e o usuário é re
 
 Se as credenciais estiverem incorretas, será exibida uma mensagem de erro informando que os dados estão incorretos.
 ![Senha inválida](image-19.png)
-5. ## Dashboard
+5. Dashboard
 O Dashboard é a página principal para a qual o usuário é redirecionado após fazer login. Neste painel o usuário pode acessar seus dados pessoais e funções exclusivas de sua conta.
 
 ### Recursos do painel
@@ -110,10 +114,10 @@ O Dashboard é a página principal para a qual o usuário é redirecionado após
 - Ver pedidos
 - Voltar ao site principal
 
-6. ## Processo de check-out
+6. Processo de check-out
 Este projeto implementa um processo de checkout usando Stripe para gerenciar pagamentos com segurança. O usuário pode selecionar produtos, inserir seus dados de pagamento e finalizar a transação.
 
-7. ## Integração de pagamentos com Stripe
+7. Integração de pagamentos com Stripe
 - Para processar pagamentos, é recomendado usar a API Stripe. Siga estas etapas para integrá-lo ao seu projeto:
 ![Checkout](image-8.png)
 
@@ -126,7 +130,8 @@ Se estiver usando PHP, você pode instalar a biblioteca Stripe usando o Composer
 composer require stripe/stripe-php
 ```
 ### c. Faça a configuração de Stripe
-```\Stripe\Stripe::setApiKey('publishable_ key_aqui') --> arquivo de javascript
+```
+\Stripe\Stripe::setApiKey('publishable_ key_aqui') --> arquivo de javascript
 
 \Stripe\Stripe::setApiKey('secret_ key_aqui') --> arquivo para pagamento feito em php
 ```
