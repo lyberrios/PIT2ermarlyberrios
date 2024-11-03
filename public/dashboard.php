@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
             <h2>Bem-vindo ao Dulcinea Cupcakes</h2>
         </div>
         <ul class="sidebar-menu">
-            <li><button onclick="mostrarFormularioCadastro()">Dados do Cliente</button></li>
+            <li><button onclick="window.location.href='dashboard.php'">Dados do Cliente</button></li>
             <li><button onclick="window.location.href='pesquisar.html'">Pedidos</button></li>
             <li><button onclick="mostrarFormularioAlterar()">Configurações</button></li>
             <li><button onclick="window.location.href='index.php'">Home</button></li>
@@ -69,7 +69,7 @@ if (!isset($_SESSION['user_id'])) {
 
                 <button type="submit">Cadastrar</button>
             </form>
-            <a href="index.html">Página inicial</a>
+            <a href="index.php">Página inicial</a>
         </div>
     </main>
 
